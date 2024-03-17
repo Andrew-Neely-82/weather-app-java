@@ -2,8 +2,7 @@ import javax.imageio.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class WeatherAppGUI extends JFrame {
     public WeatherAppGUI() {
@@ -36,7 +35,7 @@ public class WeatherAppGUI extends JFrame {
         add(weatherConditionImage);
 
         // temperature text
-        JLabel temperatureText = new JLabel("10*C");
+        JLabel temperatureText = new JLabel("40*F");
         temperatureText.setBounds(0, 350, 450, 54);
         temperatureText.setFont(new Font("Dialog", Font.BOLD, 48));
         temperatureText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -48,6 +47,29 @@ public class WeatherAppGUI extends JFrame {
         weatherCondition.setFont(new Font("Dialog", Font.PLAIN, 32));
         weatherCondition.setHorizontalAlignment(SwingConstants.CENTER);
         add(weatherCondition);
+
+        // humidity image
+        JLabel humidityImage = new JLabel(loadImage("src/assets/humidity.png"));
+        humidityImage.setBounds(15, 500, 74, 66);
+//        humidityImage.setHorizontalAlignment(SwingConstants.CENTER);
+        add(humidityImage);
+
+        // humidity text
+        JLabel humidityText = new JLabel("<html><b>Humidity</b> 100%</html>");
+        humidityText.setBounds(90, 500, 85, 55);
+        humidityText.setFont(new Font("Dialog", Font.PLAIN, 16));
+        add(humidityText);
+
+        // windspeed image
+        JLabel windSpeedImage = new JLabel(loadImage("src/assets/windspeed.png"));
+        windSpeedImage.setBounds(220,500,74,66);
+        add(windSpeedImage);
+
+        // windspeed text
+        JLabel windSpeedText = new JLabel("<html><b>Windspeed</b> 10mph</html>");
+        windSpeedText.setBounds(310,500,85,55);
+        windSpeedText.setFont(new Font("Dialog", Font.PLAIN, 16));
+        add(windSpeedText);
     }
 
     private ImageIcon loadImage(String path) {
